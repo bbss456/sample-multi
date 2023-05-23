@@ -1,0 +1,15 @@
+server:
+  port: 24201
+  shutdown: graceful
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+
+
+logging:
+  # logback 설정
+  #  config: file:${user.dir}/logback-spring.xml
+  #  config: classpath:logback-spring.xml
+  config: D:\project\sample-multi\redis-test\src\main\resources\logback-spring.xml

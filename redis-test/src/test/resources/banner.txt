@@ -1,0 +1,13 @@
+
+${Ansi.GREEN}_____________________________  .___  _________       ______________________ ____________________
+${Ansi.GREEN}\______   \_   _____/\______ \ |   |/   _____/       \__    ___/\_   _____//   _____/\__    ___/
+${Ansi.GREEN}|       _/|    __)_  |    |  \|   |\_____  \   ______ |    |    |    __)_ \_____  \   |    |
+${Ansi.GREEN}|    |   \|        \ |    `   \   |/        \ /_____/ |    |    |        \/        \  |    |
+${Ansi.GREEN}|____|_  /_______  //_______  /___/_______  /         |____|   /_______  /_______  /  |____|
+${Ansi.GREEN}       \/        \/         \/            \/                           \/        \/
+
+${Ansi.RED} ${spring.application.name}(profile: ${spring.profiles.active})
+${Ansi.RED} Powered by Spring Boot ${spring-boot.version}
+
+
+${Ansi.DEFAULT}
