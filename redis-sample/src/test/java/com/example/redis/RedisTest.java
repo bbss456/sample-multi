@@ -3,23 +3,22 @@ package com.example.redis;
 import com.example.redis.redis.entity.ResultHistory;
 import com.example.redis.redis.repository.ResultRedisRepository;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.annotation.Rollback;
-
-import javax.transaction.Transactional;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 //@Slf4j
-public class test {
+public class RedisTest {
     @Autowired
     private ResultRedisRepository redisRepository;
 
@@ -61,13 +60,11 @@ public class test {
         System.out.println("id:" +  find.getIp());
         System.out.println("original text:" +  find.getOriginalText());
         System.out.println("translated text: " + find.getTranslatedText());
-//        log.info("id: {}", find.getId());
-//        log.info("original text: {}", find.getOriginalText());
-//        log.info("translated text: {}", find.getTranslatedText());
 
-        Assertions.assertThat(save.getIp()).isEqualTo(find.getIp());
-        Assertions.assertThat(save.getOriginalText()).isEqualTo(find.getOriginalText());
-        Assertions.assertThat(save.getTranslatedText()).isEqualTo(find.getTranslatedText());
+        assertEquals(save.getIp(),find.getIp());
+        assertEquals(save.getOriginalText(),find.getOriginalText());
+        assertEquals(save.getTranslatedText(),find.getTranslatedText());
+
     }
 
     @Test

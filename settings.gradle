@@ -1,5 +1,5 @@
 rootProject.name = 'sample-multi'
 
 include 'discovery'
-include 'redis-test'
+include 'redis-sample'
 

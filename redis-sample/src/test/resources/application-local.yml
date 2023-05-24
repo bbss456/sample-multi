@@ -1,0 +1,9 @@
+server:
+  port: 8080
+  shutdown: graceful
+
+spring:
+  redis:
+    host: localhost
+    port: 6379
+
