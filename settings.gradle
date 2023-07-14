@@ -2,4 +2,8 @@ rootProject.name = 'sample-multi'
 
 include 'discovery'
 include 'redis-sample'
+include 'test'
+include 'kafka-sample'
+include 'kakao-content'
+include 'netty-sample'
 
