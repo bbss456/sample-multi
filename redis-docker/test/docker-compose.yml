@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  redis1:
+    image: redis
+    command: redis-server --port 7000
+    ports:
+      - 7005:7005
+    volumes:
+      - ./redis1:/data
+
+  redis2:
+    image: redis
+    command: redis-server --port 7001 --slaveof redis1 7000
+    ports:
+      - 7001:7001
+    volumes:
+      - ./redis2:/data
+
+  redis3:
+    image: redis
+    command: redis-server --port 7002 --slaveof redis1 7000
+    ports:
+      - 7002:7002
+    volumes:
+      - ./redis3:/data
+
+  redis4:
+    image: redis
+    command: redis-server --port 7003 --slaveof redis1 7000
+    ports:
+      - 7003:7003
+    volumes:
+      - ./redis4:/data
+
+  redis5:
+    image: redis
+    command: redis-server --port 7004 --slaveof redis1 7000
+    ports:
+      - 7004:7004
+    volumes:
+      - ./redis5:/data

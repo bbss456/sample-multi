@@ -1,0 +1,6 @@
+
+spring:
+  application:
+    name: netty-sample
+  profiles:
+    active: local

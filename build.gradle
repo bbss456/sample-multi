@@ -37,7 +37,11 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
         implementation 'org.springframework.boot:spring-boot-starter-web'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
+        implementation 'io.springfox:springfox-boot-starter:3.0.0'
+        implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+        implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux'
+        implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+        implementation 'org.apache.commons:commons-lang3:3.12.0'
     }
 
     test {
@@ -47,8 +51,28 @@ subprojects {
 
 project(':discovery') {}
 
-project('redis-sample') {
+project(':redis-sample') {
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    }
+}
+
+project(':kafka-sample') {
+    dependencies {
+        implementation 'org.springframework.kafka:spring-kafka'
+    }
+}
+
+project(':kakao-content') {
+    dependencies {
+
+    }
+}
+
+project(':netty-sample') {
+    dependencies {
+
+        implementation group: 'io.netty', name: 'netty-all', version: '4.1.24.Final'
+
     }
 }

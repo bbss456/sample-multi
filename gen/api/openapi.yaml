@@ -1,0 +1,95 @@
+openapi: 3.0.3
+info:
+  description: API에 대한 설명 부분
+  title: SpringBoot Rest API Documentation
+  version: 3.0.3
+servers:
+- description: Inferred Url
+  url: http://localhost:24201
+tags:
+- description: Kafka 토픽 Send api 입니다.
+  name: Kafka 전송
+paths:
+  /api/v1/kafka/member:
+    post:
+      description: 프로듀서 메세지 전송
+      operationId: sendMemberUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestMemberDTO'
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: boolean
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: 메세지 전송
+      tags:
+      - kafka-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+  /api/v1/kafka/message:
+    post:
+      description: 프로듀서 메세지 전송
+      operationId: sendMessageUsingPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestMessageDTO'
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: boolean
+          description: OK
+        "201":
+          description: Created
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "404":
+          description: Not Found
+      summary: 메세지 전송
+      tags:
+      - kafka-controller
+      x-contentType: application/json
+      x-accepts: '*/*'
+components:
+  schemas:
+    RequestMemberDTO:
+      example:
+        name: name
+        id: id
+        age: age
+      properties:
+        age:
+          type: string
+        id:
+          type: string
+        name:
+          type: string
+      title: RequestMemberDTO
+      type: object
+    RequestMessageDTO:
+      example:
+        message: message
+      properties:
+        message:
+          type: string
+      title: RequestMessageDTO
+      type: object
+

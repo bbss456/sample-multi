@@ -1,0 +1,9 @@
+{
+  "groupId": "com.sample.cmc",
+  "artifactId": "sampleapi-java-client",
+  "artifactVersion": "0.0.1-SNAPSHOT",
+  "apiPackage": "com.sample.cmc.client.api",
+  "modelPackage": "com.sample.cmc.client.model",
+  "invokerPackage": "com.sample.cmc.client.invoker",
+  "useGzipFeature":  true
+}

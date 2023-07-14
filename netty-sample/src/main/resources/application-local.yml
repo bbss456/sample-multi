@@ -1,0 +1,17 @@
+server:
+  port: 30101
+  shutdown: graceful
+  host: localhost
+  netty:
+    port: 30102
+    boss-count: 1000
+    worker-count: 1000
+    keep-alive: TRUE
+    backlog: 2024
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
