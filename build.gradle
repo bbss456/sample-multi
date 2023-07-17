@@ -65,14 +65,11 @@ project(':kafka-sample') {
 
 project(':kakao-content') {
     dependencies {
-
     }
 }
 
 project(':netty-sample') {
     dependencies {
-
         implementation group: 'io.netty', name: 'netty-all', version: '4.1.24.Final'
-
     }
 }

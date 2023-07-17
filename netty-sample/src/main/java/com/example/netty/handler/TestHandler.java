@@ -40,27 +40,14 @@ public class TestHandler extends ChannelInboundHandlerAdapter {
 
 
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        // 받은 메시지를 ByteBuf형으로 캐스팅합니다.
-        ByteBuf byteBufMessage = (ByteBuf) msg;
-        // 읽을 수 있는 바이트의 길이를 가져옵니다.
-        int size = byteBufMessage.readableBytes();
-
-        // 읽을 수 있는 바이트의 길이만큼 바이트 배열을 초기화합니다.
-        byte [] byteMessage = new byte[size];
-        // for문을 돌며 가져온 바이트 값을 연결합니다.
-        for(int i = 0 ; i < size; i++){
-            byteMessage[i] = byteBufMessage.getByte(i);
-        }
-
-        // 바이트를 String 형으로 변환합니다.
-        String str = new String(byteMessage);
-
-        // 결과를 콘솔에 출력합니다.
-        System.out.println(str);
-
-        // 그후 컨텍스트를 종료합니다.
-        ctx.close();
+    public void channelRead(ChannelHandlerContext ctx, Object msg){
+        ByteBuf mBuf = (ByteBuf) msg;
+        String readMessage = ((ByteBuf) msg).toString(Charset.forName("UTF8"));
+        buff.writeBytes(mBuf);  // 클라이언트에서 보내는 데이터가 축적됨
+        mBuf.release();
+        System.out.println(readMessage);
+        final ChannelFuture f = ctx.writeAndFlush(buff);
+        f.addListener(ChannelFutureListener.CLOSE);
     }
 
     @Override
