@@ -3,6 +3,7 @@ package com.example.redis;
 import com.example.redis.redis.entity.ResultHistory;
 import com.example.redis.redis.repository.ResultRedisRepository;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,20 +16,17 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @SpringBootTest
-//@Slf4j
 public class test {
     @Autowired
     private ResultRedisRepository redisRepository;
 
-//    @AfterEach
-//    void afterAll() {
-//        redisRepository.deleteAll();
-//    }
+    @AfterEach
+    void afterAll() {
+        redisRepository.deleteAll();
+    }
 
     @Autowired
     private RedisTemplate redisTemplate;
-//
-//    // 데이터 넣기
 
     @Test
     public void setValues(){
@@ -55,12 +53,6 @@ public class test {
 
         // then
         ResultHistory find = redisRepository.findById(save.getId()).get();
-        System.out.println("id:" +  find.getIp());
-        System.out.println("original text:" +  find.getOriginalText());
-        System.out.println("translated text: " + find.getTranslatedText());
-//        log.info("id: {}", find.getId());
-//        log.info("original text: {}", find.getOriginalText());
-//        log.info("translated text: {}", find.getTranslatedText());
 
         Assertions.assertThat(save.getIp()).isEqualTo(find.getIp());
         Assertions.assertThat(save.getOriginalText()).isEqualTo(find.getOriginalText());

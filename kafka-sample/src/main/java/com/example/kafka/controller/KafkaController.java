@@ -28,8 +28,6 @@ public class KafkaController {
 
     private final KafkaProducerService kafkaProducerService;
 
-
-
     @Operation(summary = "메세지 전송", description = "프로듀서 메세지 전송")
     @PostMapping("/message")
     public ResponseEntity<Boolean> sendMessage(@RequestBody RequestMessageDTO requestMessageDTO) {

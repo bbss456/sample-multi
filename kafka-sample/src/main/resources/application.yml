@@ -3,9 +3,3 @@ spring:
     name: KAFKA_TEST
   profiles:
     active: local
-
-#springdoc:
-#  version: v1.0.0
-#  swagger-ui:
-#    path: /
-#    default-models-expand-depth: 3

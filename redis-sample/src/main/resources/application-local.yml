@@ -15,10 +15,3 @@ spring:
         - 127.0.0.1:7005
         - 127.0.0.1:7006
     timeout: 30s
-#
-#  redis:
-#    host: localhost
-#    port: 6379
-
-
-
